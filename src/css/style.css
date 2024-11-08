@@ -1,0 +1,76 @@
+/* Adjust header and nav alignment */
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+/* Adjust card layout and spacing */
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-gap: 20px;
+  justify-content: center;
+  max-width: 1000px;
+  margin: 20px auto;
+}
+
+.card {
+  background-color: #343030;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.card-title,
+.card-time {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #fff;
+  text-align: center;
+}
+
+.duration {
+  background-color: #d42828;
+  color: #fff;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+/* Footer styles */
+footer {
+  margin-top: 40px;
+  text-align: center;
+}
+
+#newsletter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+#newsletter input,
+#newsletter button {
+  margin: 10px 0;
+}

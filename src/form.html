@@ -1,0 +1,171 @@
+<!--/**
+ * WEB222 – Assignment 04
+ *
+ * I declare that this assignment is my own work in accordance with
+ * Seneca Academic Policy. No part of this assignment has been
+ * copied manually or electronically from any other source
+ * (including web sites) or distributed to other students.
+ *
+ * Please update the following with your information:
+ *
+ *      Name:       JEEVAN VICTOR VARGHESE
+ *      Student ID: 142216225
+ *      Date:       4/12/2024
+ */
+-->
+<!doctype html>
+<html lang="en-CA">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=500, initial-scale=1" />
+    <meta name="author" content="Jeevan Victor Varghese" />
+
+    <title>WEB222 Music App- form for requesting new artist</title>
+    <link rel="stylesheet" href="./css/water.css" />
+
+    <style>
+      /*css styles for the input boxes*/
+      input,
+      textarea {
+        padding: 0.5em 1.2em;
+        margin: 0.5em 0;
+        display: block;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 0.25em;
+        width: 98%;
+      }
+      .container {
+        border-radius: 0.3em;
+        background-color: #292b3263;
+        padding: 2em;
+        max-width: 42vw;
+        margin: 0 auto;
+        box-shadow: 0px 2px 6px #999;
+      }
+
+      form {
+        text-align: center;
+        width: 100%;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 3px;
+        text-align: left;
+        font-weight: bold;
+        font-size: medium;
+      }
+      button:hover {
+        box-shadow: 0px 2px 6px #999;
+      }
+
+      /*FOr the submit button*/
+      form button[type="submit"] {
+        background-color: green;
+        color: white;
+      }
+      .center-label {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <header style="text-align: center">
+      <h1><a href="index.html">HARMONY HUB</a></h1>
+      <hr />
+    </header>
+    <header style="text-align: center">
+      <h1>Request New Artist</h1>
+    </header>
+    <div class="container">
+      <main>
+        <form id="newArtist" action="https://httpbin.org/post" method="post">
+          <label for="nameofartist">Artist's Name:</label>
+          <input type="text" id="nameofartist" name="nameofartist" required />
+          <br />
+          <label for="category">Music Genre:</label>
+          <input list="options" id="category" name="category" required />
+          <datalist id="options">
+            <option value="Rock"></option>
+            <option value="Hip Hop"></option>
+            <option value="Instrumental"></option>
+            <option value="EDM"></option>
+            <option value="Pop"></option>
+            <option value="Jazz"></option>
+            <option value="Country"></option>
+            <option value="R and B"></option>
+            <option value="Worship"></option>
+            <option value="Classical"></option>
+            <option value="Other"></option>
+          </datalist>
+          <input
+            type="text"
+            id="otherGenre"
+            name="otherGenre"
+            placeholder="Enter other genre"
+            style="display: none"
+          />
+
+          <br />
+
+          <label for="socialurl">Social Media URLs:</label>
+          <input type="url" id="socialurl" name="socialurl" placeholder="Enter URL/URLs" required />
+          <br />
+          <label for="songUrl">Example Songs/Videos URLs:</label>
+
+          <!-- Div to get songs later-->
+          <div id="songsContainer">
+            <input type="url" id="songUrl" name="songUrl" placeholder="Enter URL" required /><br />
+          </div>
+          <button type="button" id="addSong">Add More</button>
+          <br />
+          <br />
+          <label class="center-label" for="explicitLyrics">Does it have explicit lyrics?:</label>
+          <input type="checkbox" id="explicit" name="explicit" />
+          <br />
+          <br />
+          <label class="center-label" for="description">Why do you want to add this artist?</label
+          ><br />
+          <textarea id="description" name="description" rows="4"></textarea><br />
+          <button type="submit">Submit</button>
+        </form>
+      </main>
+    </div>
+
+    <script>
+      document.getElementById("addSong").addEventListener("click", function () {
+        const container = document.getElementById("songsContainer");
+        const input = document.createElement("input");
+        input.type = "url";
+        input.name = "songUrl";
+        input.placeholder = "Enter URL";
+        /*
+        SETTING REQUIRED TO FALSE CAUSE WHAT IF USER DOESNT WANT TO 
+        ADD MORE HE CAN SIMPLY SUBMIT
+      */
+        input.required = false;
+        container.appendChild(input);
+        container.appendChild(document.createElement("br"));
+      });
+
+      /*function for making first letter of the artist name a capital letter*/
+      document.getElementById("nameofartist").addEventListener("input", function () {
+        var artistNameInput = document.getElementById("nameofartist");
+        var artistName = artistNameInput.value;
+        if (artistName.length > 0) {
+          artistNameInput.value = artistName.charAt(0).toUpperCase() + artistName.slice(1);
+        }
+      });
+      /*this is for making an other option input visible*/
+      document.getElementById("category").addEventListener("input", function () {
+        var selectedOption = this.value;
+        if (selectedOption.toLowerCase() === "other") {
+          document.getElementById("otherGenre").style.display = "block";
+        } else {
+          document.getElementById("otherGenre").style.display = "none";
+        }
+      });
+    </script>
+  </body>
+</html>

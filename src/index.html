@@ -1,0 +1,68 @@
+<!--/**
+ * WEB222 – Assignment 04
+ *
+ * I declare that this assignment is my own work in accordance with
+ * Seneca Academic Policy. No part of this assignment has been
+ * copied manually or electronically from any other source
+ * (including web sites) or distributed to other students.
+ *
+ * Please update the following with your information:
+ *
+ *      Name:       JEEVAN VICTOR VARGHESE
+ *      Student ID: 142216225
+ *      Date:       4/12/2024
+ */
+-->
+<!doctype html>
+<html lang="en-CA">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=500, initial-scale=1" />
+    <meta name="author" content="Jeevan Victor Varghese" />
+
+    <title>WEB222 Music App</title>
+    <link rel="stylesheet" href="./css/water.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <style></style>
+    <header style="text-align: center">
+      <h1>HARMONY HUB</h1>
+      <h2>THE GREATS OF THE MUSIC INDUSTRY</h2>
+    </header>
+    <nav id="menu" style="text-align: center">
+      <!-- Dynamically create  menu category buttons here -->
+    </nav>
+    <hr />
+    <main>
+      <h2 id="selected-artist">
+        <!-- Dynamically update the category title -->
+      </h2>
+      <div class="container">
+        <!-- Dynamic song cards here -->
+      </div>
+    </main>
+
+    <!-- JavaScript Data Files -->
+    <script src="./js/artists.js"></script>
+    <script src="./js/songs.js"></script>
+
+    <!-- Main App File -->
+    <script src="./js/app.js"></script>
+  </body>
+
+  <!-- to request a new artist and the newsletter -->
+  <footer>
+    <h3>Request a new artist?</h3>
+    <div style="text-align: center">
+      <button onclick="window.location.href='form.html'">Add a new artist</button>
+    </div>
+    <h3>Sign up to our newsletter for more updates on music...</h3>
+    <form id="newsletter" action="https://httpbin.org/post" method="post">
+      <label for="email">Email:</label>
+      <input placeholder="someone@example.com" type="email" id="email" name="email" required />
+
+      <button type="submit">Subscribe</button>
+    </form>
+  </footer>
+</html>
